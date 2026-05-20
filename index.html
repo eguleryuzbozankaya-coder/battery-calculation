@@ -123,6 +123,21 @@ tr.r-warn td{background:#fffbf0;}
 tr.r-danger td{background:#fff5f5;}
 
 footer{text-align:center;font-size:11px;color:var(--text3);padding:1.5rem 1rem;border-top:1px solid var(--border);max-width:1400px;margin:0 auto;}
+
+/* ── PRINT BUTTON ── */
+.print-btn{display:flex;align-items:center;gap:7px;margin-left:auto;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);border-radius:8px;padding:7px 16px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s;}
+.print-btn:hover{background:rgba(255,255,255,0.25);}
+.print-btn i{font-size:16px;}
+
+@media print{
+  .print-btn,.header-sep ~ .print-btn{display:none!important;}
+  body{background:#fff!important;padding:0;}
+  .app-header{background:#810d11!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .page{display:block!important;padding:0.5rem!important;}
+  .card{box-shadow:none!important;border:1px solid #ddd!important;margin-bottom:0.75rem!important;break-inside:avoid;}
+  .card:first-child{position:relative!important;}
+  footer{font-size:10px;}
+}
 </style>
 </head>
 <body>
@@ -150,12 +165,14 @@ footer{text-align:center;font-size:11px;color:var(--text3);padding:1.5rem 1rem;b
     </div>
     <div class="header-sep"></div>
     <div class="header-text">
-      <div class="label">Dahili Araç</div>
+      <div class="label">Bozankaya Raylı Sistemler A.Ş.</div>
       <h1>Batarya Kapasite Hesaplama</h1>
     </div>
 
 
 
+
+    <button class="print-btn" onclick="window.print()"><i class="ti ti-printer"></i> Sonuçları Yazdır / PDF</button>
     </div>
   </div>
 </div>
@@ -167,7 +184,7 @@ footer{text-align:center;font-size:11px;color:var(--text3);padding:1.5rem 1rem;b
   <div class="card" style="position:sticky;top:1rem;">
     <div class="card-head">
       <div class="card-head-icon blue"><i class="ti ti-adjustments-horizontal"></i></div>
-      <div><h2>Girdi Parametreleri</h2><p>Seçmeli ve elle girilecek alanlar</p></div>
+      <div><h2>Girdi Parametreleri</h2><p>Seçmeli ve manuel girilecek alanlar</p></div>
     </div>
     <div class="card-body">
 
@@ -203,7 +220,7 @@ footer{text-align:center;font-size:11px;color:var(--text3);padding:1.5rem 1rem;b
         <div class="hint" id="paket-hint"></div>
       </div>
 
-      <div class="fg-title"><i class="ti ti-pencil"></i> Elle Girilecek Alanlar</div>
+      <div class="fg-title"><i class="ti ti-pencil"></i> Manuel Girilecek Alanlar</div>
       <div class="grid2">
         <div class="field">
           <label>Araç Tüketimi (kWh/km)</label>
